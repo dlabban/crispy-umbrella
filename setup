@@ -1,0 +1,6 @@
+#!/bin/bash -eu
+max=5
+tmp=`mktemp`
+echo "cd `pwd` && su $USER ./commit $max" > $tmp
+chmod +x $tmp
+sudo mv -f $tmp  /etc/cron.daily/commit.$USER
